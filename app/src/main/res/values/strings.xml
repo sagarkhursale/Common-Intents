@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Common Intents</string>
+
+    <string name="activity_title">Examples Of Implicit Intent : </string>
+    <string name="button_one">Open Website</string>
+    <string name="button_two">Show Location In Map</string>
+    <string name="button_three">Share Text</string>
+
+
 </resources>
