@@ -31,20 +31,14 @@ public class MainActivity extends AppCompatActivity {
 
     public void showLocationInMap(View view) {
         String addressString = "1600 Ampitheatre Parkway, CA";
-
-        //Uri geoLocation = Uri.parse("geo:0,0?q=" + addressString) // or;
-        Uri.Builder builder = new Uri.Builder();
-        builder.scheme("geo")
-                .path("0,0")
-                .query(addressString);
-        Uri addressUri = builder.build();
+        Uri geoLocation = Uri.parse("geo:0,0?q=" + addressString);
 
         Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(addressUri);
+        intent.setData(geoLocation);
+
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);
-        }
-        else {
+        } else {
             Toast.makeText(this, "Couldn't Call, No Receiving app installed!", Toast.LENGTH_SHORT).show();
         }
     }
