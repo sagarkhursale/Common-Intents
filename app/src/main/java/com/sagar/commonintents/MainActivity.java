@@ -5,7 +5,9 @@ import android.net.Uri;
 import android.support.v4.app.ShareCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -28,8 +30,9 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void showLocationInMap(View view) {
-        String addressString = "1600 Amphitheatre Parkway, CA";
+        String addressString = "1600 Ampitheatre Parkway, CA";
 
+        //Uri geoLocation = Uri.parse("geo:0,0?q=" + addressString) // or;
         Uri.Builder builder = new Uri.Builder();
         builder.scheme("geo")
                 .path("0,0")
@@ -40,6 +43,9 @@ public class MainActivity extends AppCompatActivity {
         intent.setData(addressUri);
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);
+        }
+        else {
+            Toast.makeText(this, "Couldn't Call, No Receiving app installed!", Toast.LENGTH_SHORT).show();
         }
     }
 
